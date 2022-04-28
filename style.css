@@ -33,7 +33,7 @@ main{
 }
 
 /*********** Positioning ************/
-.positioning, .flex-box{
+.positioning, .flex-box, .grid{
     border: 2px solid skyblue;
     padding: 10px;
     margin-top: 20px;
@@ -85,4 +85,71 @@ li{
     align-items: center;
     justify-content: center;
 
+}
+
+.grid-container{
+     display: grid;
+     grid-template-columns: 30% 70%;
+}
+.img{
+    text-align: center;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'i1 i2'
+    'ta ta'
+    'bt bt';
+}
+input,textarea{
+    margin: 5px;
+    height: 45px;
+    border: 1px solid darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+
+}
+
+#firstname{
+    grid-area: i1;
+}
+
+#surname{
+    grid-area: i2;
+}
+
+textarea{
+    grid-area: ta;
+    resize: none;
+}
+
+#btn-valider{
+    grid-area: bt;
+    cursor: pointer;
+    background:cyan;
+    transition: 0.4s;
+}
+
+#btn-valider:hover{
+    background: darkblue;
+    color: white;
+}
+
+@media screen and (max-width: 1000px){
+    .grid-container{
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width:780px){
+    form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "i1" "i2" "ta" "bt";
+    }
 }
